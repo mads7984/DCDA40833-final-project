@@ -84,3 +84,30 @@ df.to_csv(cleaned_file, index=False)
 
 print(f"Cleaned data saved to: {cleaned_file}")
 print()
+
+# Create a subset of the data for listed drugs only from all of the websites
+listed_df = df[df["listed"] == 1].copy()
+
+print("Number of total rows:", len(df))
+print("Number of listed rows:", len(listed_df))
+print()
+
+
+# Calculate how many drugs are listed on each site and the percentage of total possible drugs, analyzing the availability of drugs across the different sites. This will help us understand which sites have the most comprehensive listings and how they compare to each other in terms of drug availability.
+availability = (
+    df.groupby("site")["listed"]
+    .sum()
+    .reset_index(name="drugs_listed")
+)
+
+availability["total_possible_drugs"] = df.groupby("site")["drug_name"].count().values
+availability["availability_percent"] = (
+    availability["drugs_listed"] / availability["total_possible_drugs"] * 100
+).round(2)
+
+availability_file = os.path.join(OUTPUT_FOLDER, "availability_by_site.csv")
+availability.to_csv(availability_file, index=False)
+
+print("Availability by site:")
+print(availability)
+print()
