@@ -177,3 +177,39 @@ cheapest_counts.to_csv(cheapest_counts_file, index=False)
 print("How many times each site was cheapest:")
 print(cheapest_counts)
 print()
+
+# Calculate the average transparency score for each site, which will allow us to evaluate and compare the overall transparency of pricing information across different platforms. This analysis can help identify which sites provide clearer and more accessible information about drug prices, dosages, quantities, and other relevant details that contribute to a higher transparency score. A higher average transparency score may indicate that a site is more user-friendly and provides better information for consumers
+transparency = (
+    df.groupby("site")["transparency_score"]
+    .mean()
+    .reset_index(name="average_transparency_score")
+)
+
+transparency["average_transparency_score"] = transparency["average_transparency_score"].round(2)
+
+transparency_file = os.path.join(OUTPUT_FOLDER, "transparency_scores_by_site.csv")
+transparency.to_csv(transparency_file, index=False)
+
+print("Average transparency score by site:")
+print(transparency)
+print()
+
+
+# Calculate the price difference from TrumpRx for each drug, which will allow us to compare the listed prices on other platforms to the prices offered by TrumpRx. This analysis can help identify how much more expensive or cheaper other sites are compared to TrumpRx for the same drugs, providing insights into potential cost savings or price disparities across different platforms.
+trumprx_prices = (
+    df[df["site"] == "TrumpRx"][["drug_name", "listed_price"]]
+    .rename(columns={"listed_price": "trumprx_price"})
+)
+
+price_compare = listed_df.merge(trumprx_prices, on="drug_name", how="left")
+
+price_compare["price_difference_from_trumprx"] = (
+    price_compare["listed_price"] - price_compare["trumprx_price"]
+).round(2)
+
+price_compare_file = os.path.join(OUTPUT_FOLDER, "price_difference_from_trumprx.csv")
+price_compare.to_csv(price_compare_file, index=False)
+
+print("Price difference from TrumpRx:")
+print(price_compare[["drug_name", "site", "listed_price", "trumprx_price", "price_difference_from_trumprx"]])
+print()
