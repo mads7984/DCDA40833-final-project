@@ -213,3 +213,63 @@ price_compare.to_csv(price_compare_file, index=False)
 print("Price difference from TrumpRx:")
 print(price_compare[["drug_name", "site", "listed_price", "trumprx_price", "price_difference_from_trumprx"]])
 print()
+
+# Create a bar chart to visualize the average listed price for each site, which will allow us to easily compare the pricing across different platforms. This visual representation can help highlight any significant differences in average prices and make it easier for consumers to identify which sites tend to have higher or lower prices on average. By sorting the bars in ascending order, we can quickly see which sites are more affordable and which may be more expensive for consumers looking to purchase their medications. This chart can serve as a useful tool for consumers to make informed decisions about where to buy their drugs based on cost.
+avg_price_chart = average_price.sort_values("average_price")
+
+plt.figure(figsize=(8, 5))
+plt.bar(avg_price_chart["site"], avg_price_chart["average_price"])
+plt.title("Average Listed Price by Site")
+plt.xlabel("Site")
+plt.ylabel("Average Listed Price")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig(os.path.join(CHARTS_FOLDER, "average_price_by_site.png"))
+plt.close()
+
+
+# Create a bar chart to visualize the number of drugs listed on each site, which will allow us to compare the availability of medications across different platforms. This visual representation can help highlight which sites have the most comprehensive listings and how they compare to each other in terms of drug availability. By sorting the bars in descending order, we can quickly see which sites offer the widest selection of drugs and which may have more limited offerings for consumers looking to purchase their medications. This chart can serve as a useful tool for consumers to make informed decisions about where to buy their drugs based on the availability of the medications they need.
+availability_chart = availability.sort_values("drugs_listed", ascending=False)
+
+plt.figure(figsize=(8, 5))
+plt.bar(availability_chart["site"], availability_chart["drugs_listed"])
+plt.title("Number of Drugs Listed by Site")
+plt.xlabel("Site")
+plt.ylabel("Drugs Listed")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig(os.path.join(CHARTS_FOLDER, "availability_by_site.png"))
+plt.close()
+
+
+# Create a bar chart to visualize the average transparency score for each site, which will allow us to compare the overall transparency of pricing information across different platforms. This visual representation can help highlight which sites provide clearer and more accessible information about drug prices, dosages, quantities, and other relevant details that contribute to a higher transparency score. By sorting the bars in descending order, we can quickly see which sites are more user-friendly and provide better information for consumers, making it easier for them to make informed decisions about where to purchase their medications based on the quality of information provided.
+transparency_chart = transparency.sort_values("average_transparency_score", ascending=False)
+
+plt.figure(figsize=(8, 5))
+plt.bar(transparency_chart["site"], transparency_chart["average_transparency_score"])
+plt.title("Average Transparency Score by Site")
+plt.xlabel("Site")
+plt.ylabel("Average Transparency Score")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig(os.path.join(CHARTS_FOLDER, "transparency_scores_by_site.png"))
+plt.close()
+
+
+# Create a bar chart to visualize the listed price for each drug across different sites, which will allow us to compare the pricing for specific medications across various platforms. This visual representation can help highlight any significant price differences for the same drug across different sites and make it easier for consumers to identify which platforms offer the best prices for the medications they need. By grouping the bars by drug and coloring them by site, we can quickly see how the prices vary for each drug across different platforms, providing valuable insights for consumers looking to make informed purchasing decisions based on cost.
+pivot_prices = listed_df.pivot(index="drug_name", columns="site", values="listed_price")
+
+pivot_prices.plot(kind="bar", figsize=(10, 6))
+plt.title("Listed Price by Drug and Site")
+plt.xlabel("Drug")
+plt.ylabel("Listed Price")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.savefig(os.path.join(CHARTS_FOLDER, "price_by_drug_and_site.png"))
+plt.close()
+
+
+# Save the output tables and charts for further use and reference. The tables are saved in the "outputs" folder, while the charts are saved in the "charts" folder. This organization allows for easy access to the results of the analysis and provides a clear separation between the data outputs and visualizations. By saving these files, we can ensure that the insights gained from the analysis are preserved and can be easily shared or revisited in the future.
+print("Analysis complete.")
+print(f"Output tables saved in: {OUTPUT_FOLDER}")
+print(f"Charts saved in: {CHARTS_FOLDER}")
