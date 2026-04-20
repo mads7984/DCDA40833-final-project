@@ -1,0 +1,5 @@
+site,drugs_listed,total_possible_drugs,availability_percent
+CostPlus,0,7,0.0
+GoodRx,7,7,100.0
+SingleCare,7,7,100.0
+TrumpRx,3,7,42.86

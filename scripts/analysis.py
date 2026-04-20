@@ -111,3 +111,69 @@ availability.to_csv(availability_file, index=False)
 print("Availability by site:")
 print(availability)
 print()
+
+# Find the average listed price for each site, which will allow us to compare the pricing across different platforms and identify any significant differences in cost for the same drugs. This analysis can reveal which sites tend to have higher or lower prices on average, providing insights into potential cost savings for consumers.
+average_price = (
+    listed_df.groupby("site")["listed_price"]
+    .mean()
+    .reset_index(name="average_price")
+)
+
+average_price["average_price"] = average_price["average_price"].round(2)
+
+average_price_file = os.path.join(OUTPUT_FOLDER, "average_price_by_site.csv")
+average_price.to_csv(average_price_file, index=False)
+
+print("Average price by site:")
+print(average_price)
+print()
+
+
+# Calculate the median listed price for each site, which will provide a more robust measure of central tendency for the prices on each platform, especially if there are outliers or skewed distributions. This analysis can help identify which sites have more consistent pricing and which may have extreme values that affect the average price.
+median_price = (
+    listed_df.groupby("site")["listed_price"]
+    .median()
+    .reset_index(name="median_price")
+)
+
+median_price["median_price"] = median_price["median_price"].round(2)
+
+median_price_file = os.path.join(OUTPUT_FOLDER, "median_price_by_site.csv")
+median_price.to_csv(median_price_file, index=False)
+
+print("Median price by site:")
+print(median_price)
+print()
+
+
+# Identify the cheapest site for each drug, which will allow us to determine which platform offers the lowest price for each specific medication. This analysis can help consumers make informed decisions about where to purchase their drugs based on cost and can also highlight any significant price differences for the same drug across different sites.
+cheapest_by_drug = (
+    listed_df.loc[listed_df.groupby("drug_name")["listed_price"].idxmin()]
+    .sort_values("drug_name")
+    [["drug_name", "site", "listed_price"]]
+    .reset_index(drop=True)
+)
+
+cheapest_file = os.path.join(OUTPUT_FOLDER, "cheapest_site_per_drug.csv")
+cheapest_by_drug.to_csv(cheapest_file, index=False)
+
+print("Cheapest site for each drug:")
+print(cheapest_by_drug)
+print()
+
+
+# Count how many times each site is the cheapest for a drug, which will provide insights into which platforms consistently offer the lowest prices for medications. This analysis can help identify which sites are more likely to be the most cost-effective options for consumers and can reveal any trends in pricing across different platforms.
+cheapest_counts = (
+    cheapest_by_drug["site"]
+    .value_counts()
+    .reset_index()
+)
+
+cheapest_counts.columns = ["site", "times_cheapest"]
+
+cheapest_counts_file = os.path.join(OUTPUT_FOLDER, "times_cheapest_by_site.csv")
+cheapest_counts.to_csv(cheapest_counts_file, index=False)
+
+print("How many times each site was cheapest:")
+print(cheapest_counts)
+print()
