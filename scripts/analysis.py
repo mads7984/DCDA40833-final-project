@@ -196,12 +196,19 @@ print()
 
 
 # Calculate the price difference from TrumpRx for each drug, which will allow us to compare the listed prices on other platforms to the prices offered by TrumpRx. This analysis can help identify how much more expensive or cheaper other sites are compared to TrumpRx for the same drugs, providing insights into potential cost savings or price disparities across different platforms.
+# Calculate the price difference from TrumpRx for each drug, which will allow us to compare the listed prices on other platforms to the prices offered by TrumpRx. This analysis can help identify how much more expensive or cheaper other sites are compared to TrumpRx for the same drugs, providing insights into potential cost savings or price disparities across different platforms.
 trumprx_prices = (
-    df[df["site"] == "TrumpRx"][["drug_name", "listed_price"]]
+    df[
+        (df["site"] == "TrumpRx") &
+        (df["listed"] == 1)
+    ][["drug_name", "listed_price"]]
     .rename(columns={"listed_price": "trumprx_price"})
 )
 
-price_compare = listed_df.merge(trumprx_prices, on="drug_name", how="left")
+# Only compare non-TrumpRx listed rows to TrumpRx
+comparison_df = listed_df[listed_df["site"] != "TrumpRx"].copy()
+
+price_compare = comparison_df.merge(trumprx_prices, on="drug_name", how="inner")
 
 price_compare["price_difference_from_trumprx"] = (
     price_compare["listed_price"] - price_compare["trumprx_price"]
@@ -211,7 +218,11 @@ price_compare_file = os.path.join(OUTPUT_FOLDER, "price_difference_from_trumprx.
 price_compare.to_csv(price_compare_file, index=False)
 
 print("Price difference from TrumpRx:")
-print(price_compare[["drug_name", "site", "listed_price", "trumprx_price", "price_difference_from_trumprx"]])
+print(
+    price_compare[
+        ["drug_name", "site", "listed_price", "trumprx_price", "price_difference_from_trumprx"]
+    ]
+)
 print()
 
 # Create a bar chart to visualize the average listed price for each site, which will allow us to easily compare the pricing across different platforms. This visual representation can help highlight any significant differences in average prices and make it easier for consumers to identify which sites tend to have higher or lower prices on average. By sorting the bars in ascending order, we can quickly see which sites are more affordable and which may be more expensive for consumers looking to purchase their medications. This chart can serve as a useful tool for consumers to make informed decisions about where to buy their drugs based on cost.
