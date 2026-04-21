@@ -1,0 +1,843 @@
+/* =========================
+   Drug Price Comparison Project
+   CSS Stylesheet
+   Adapted from my DCDA 40833 portfolio stylesheet
+   ========================= */
+
+/* =========================
+   CSS Variables (Color Scheme)
+   ========================= */
+/* I wanted to keep the same overall structure from my portfolio stylesheet, but update the palette to match the image I selected for this project. */
+/* The teal and aqua colors feel clean, data-focused, and appropriate for a healthcare-related project. */
+
+/* Light Mode (Default) */
+:root {
+    --primary-color: #187980;      /* Deep teal */
+    --secondary-color: #26bbc5;    /* Bright aqua */
+    --accent-color: #a8d7a2;       /* Soft green accent */
+    --text-color: #333;            /* Dark gray for text */
+    --text-secondary: #64748b;     /* Lighter gray for captions */
+    --bg-color: #f4f8f8;           /* Light background */
+    --white: #ffffff;
+    --nav-bg: #0d858b;             /* Navigation background */
+    --card-bg: #ffffff;            /* Card/section background */
+    --shadow: rgba(0, 0, 0, 0.1);  /* Box shadows */
+    --border-color: #d8eaea;       /* Soft border */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --primary-color: #7ad5db;      /* Lighter aqua for dark mode */
+    --secondary-color: #26bbc5;    /* Bright teal */
+    --accent-color: #a8d7a2;       /* Soft green accent */
+    --text-color: #e4e4e7;         /* Light gray text */
+    --text-secondary: #a1a1aa;     /* Secondary text */
+    --bg-color: #102326;           /* Dark teal/navy background */
+    --white: #102326;              /* Dark replacement for white areas */
+    --nav-bg: #163136;             /* Dark nav background */
+    --card-bg: #1a2d31;            /* Dark card background */
+    --shadow: rgba(0, 0, 0, 0.3);  /* Stronger shadows for depth */
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark mode specific adjustments for images and links */
+body.dark-mode img {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+body.dark-mode img:hover {
+    opacity: 1;
+}
+
+body.dark-mode .viz-container img {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode a {
+    color: var(--accent-color);
+}
+
+body.dark-mode main section a {
+    color: var(--accent-color);
+}
+
+body.dark-mode main section a:hover {
+    color: var(--primary-color);
+}
+
+/* =========================
+   Basic Reset & Typography
+   ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;       /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Added a fade in effect whenever pages are loaded/switched */
+body {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Added a subtle shadow to images for a polished look */
+img {
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   Header & Navigation
+   ========================= */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0 auto;
+    opacity: 0.95;
+    font-size: 1.1rem;
+    max-width: 750px;
+    padding: 0 1rem;
+}
+
+nav {
+    background-color: var(--nav-bg);
+    padding: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Hamburger Menu Button */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+    position: absolute;
+    right: 1rem;
+    font-size: inherit;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger animation when active */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Style the navigation list */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+
+nav li {
+    list-style: none;
+    font-size: inherit;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+}
+
+/* Active page indicator */
+nav a.active {
+    background-color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* =========================
+   Dark Mode Toggle Switch
+   ========================= */
+.theme-toggle-wrapper {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.theme-toggle input:checked + .slider::before {
+    transform: translateX(30px);
+}
+
+.theme-toggle input:checked + .slider {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider .icon {
+    font-size: 16px;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.slider .sun {
+    opacity: 1;
+}
+
+.slider .moon {
+    opacity: 0.5;
+}
+
+.theme-toggle input:checked + .slider .sun {
+    opacity: 0.5;
+}
+
+.theme-toggle input:checked + .slider .moon {
+    opacity: 1;
+}
+
+/* =========================
+   Main Content
+   ========================= */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main section {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+main section h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.875rem;
+}
+
+main section h3 {
+    color: var(--text-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+
+main section h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+main section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+main section ul,
+main section ol {
+    margin: 1rem 0 1rem 2rem;
+    line-height: 1.8;
+}
+
+main section li {
+    margin-bottom: 0.5rem;
+}
+
+/* =========================
+   Hero / Intro Styling
+   ========================= */
+/* I added a class for the project intro area, but kept the same overall section styling system from the portfolio. */
+.hero-card {
+    background: linear-gradient(135deg, rgba(38, 187, 197, 0.15), rgba(168, 215, 162, 0.18));
+    border-left: 5px solid var(--secondary-color);
+}
+
+.hero-card h2 {
+    border-bottom: none;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0;
+}
+
+/* =========================
+   Selector / Dropdown
+   ========================= */
+/* This is one of the new pieces for this project because the homepage uses a dropdown menu to direct users to different sections/pages. */
+.selector-box {
+    background: rgba(38, 187, 197, 0.08);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.selector-box label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.selector-box select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--white);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+body.dark-mode .selector-box select {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+/* =========================
+   Summary Cards
+   ========================= */
+/* I wanted to keep the card system from my portfolio since it worked well visually, but adapt it for findings and numeric summaries. */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.summary-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .summary-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.summary-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 16px rgba(24, 121, 128, 0.15);
+    transform: translateY(-3px);
+}
+
+.summary-card h3,
+.summary-card h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.placeholder-card {
+    background: rgba(38, 187, 197, 0.08);
+    border: 2px dashed var(--secondary-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+/* =========================
+   Data Visualizations
+   ========================= */
+.viz-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.viz-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    padding: 0.25rem;
+}
+
+.viz-container figcaption {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.viz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* =========================
+   Code Blocks
+   ========================= */
+pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+code {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+p code, li code {
+    background: #f4f4f4;
+    color: #c7254e;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.code-title {
+    background: #1e1e1e;
+    color: #9cdcfe;
+    padding: 0.5rem 1rem;
+    border-radius: 8px 8px 0 0;
+    font-family: monospace;
+    font-size: 0.85rem;
+    margin-bottom: -0.5rem;
+}
+
+.code-title + pre {
+    border-radius: 0 0 8px 8px;
+    margin-top: 0;
+}
+
+/* =========================
+   Data Tables
+   ========================= */
+/* Tables are especially important for this project, so I kept the same table styling concept from the portfolio and made it slightly cleaner for data display. */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid #e2e8f0;
+}
+
+th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+body.dark-mode table {
+    background: var(--card-bg);
+}
+
+body.dark-mode tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.results-table {
+    font-size: 0.95rem;
+    margin: 1.5rem auto;
+    max-width: 700px;
+}
+
+.results-table td {
+    text-align: center;
+}
+
+.results-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.results-table tr.highlight {
+    background: #e8f7f4;
+    font-weight: bold;
+}
+
+body.dark-mode .results-table tr.highlight {
+    background: rgba(168, 215, 162, 0.15);
+}
+
+/* =========================
+   Framework / Callout Boxes
+   ========================= */
+.framework-callout {
+    background: linear-gradient(135deg, #eefbfb, #eef8ec);
+    border-left: 5px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+body.dark-mode .framework-callout {
+    background: linear-gradient(135deg, rgba(38, 187, 197, 0.08), rgba(168, 215, 162, 0.08));
+}
+
+.framework-callout h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.framework-callout strong {
+    color: var(--secondary-color);
+}
+
+/* =========================
+   Portfolio / Navigation Cards
+   ========================= */
+/* I am keeping this card layout because it will work well if I want the homepage or other pages to link to analysis sections. */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.portfolio-card {
+    display: block;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+body.dark-mode .portfolio-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.portfolio-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 16px rgba(24, 121, 128, 0.15);
+    transform: translateY(-4px);
+}
+
+.portfolio-card h3 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.portfolio-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0.75rem 0 0 0;
+    line-height: 1.5;
+}
+
+.lab-tag {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode footer {
+    background-color: #102326;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   Embedded Containers / Images
+   ========================= */
+.embed-container,
+.map-container {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    margin: 2rem 0;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--shadow);
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .embed-container,
+body.dark-mode .map-container {
+    border-color: var(--accent-color);
+}
+
+/* =========================
+   Responsive Design (Mobile)
+   ========================= */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        font-size: 0.9rem;
+        justify-content: flex-start;
+        padding: 0.75rem 1rem;
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--nav-bg);
+        box-shadow: 0 4px 6px var(--shadow);
+        padding: 1rem 0;
+        gap: 0.5rem;
+        z-index: 102;
+        font-size: inherit;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav li {
+        width: 100%;
+        text-align: center;
+        font-size: inherit;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        font-size: inherit;
+    }
+
+    .theme-toggle-wrapper {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0.75rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin-top: 0.5rem;
+    }
+
+    .theme-toggle {
+        width: 50px;
+        height: 26px;
+    }
+
+    .slider::before {
+        height: 18px;
+        width: 18px;
+    }
+
+    .theme-toggle input:checked + .slider::before {
+        transform: translateX(24px);
+    }
+
+    .slider .icon {
+        font-size: 14px;
+    }
+
+    main section {
+        padding: 1rem;
+    }
+
+    .viz-grid,
+    .summary-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container,
+    .embed-container {
+        min-height: 320px;
+        margin: 1rem 0;
+    }
+}
+
+/* =========================
+   Print Styles
+   ========================= */
+@media print {
+    nav {
+        display: none;
+    }
+
+    main section {
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+}
