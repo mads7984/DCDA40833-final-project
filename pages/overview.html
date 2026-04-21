@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Overview of dataset for prescription drug price comparison project">
+    <meta name="author" content="Madeline Gordy">
+    <title>Madeline Gordy | Data Overview</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <!-- I kept the navigation consistent with the homepage so the site feels cohesive -->
+    <nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="availability.html">Availability</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="cheapest.html">Cheapest Site</a></li>
+            <li><a href="transparency.html">Transparency</a></li>
+            <li><a href="comparison.html">Drug Comparison</a></li>
+
+            <!-- Dark Mode Toggle -->
+            <li class="theme-toggle-wrapper">
+                <label class="theme-toggle" for="theme-switch" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="theme-switch" />
+                    <span class="slider">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <!-- I wanted each page to clearly identify itself -->
+    <header>
+        <h1>Data Overview</h1>
+        <p>Full dataset for selected Type 2 diabetes medications across four drug coupon sites.</p>
+    </header>
+
+    <main>
+
+        <!-- Introduction -->
+        <section class="hero-card">
+            <h2>Overview of the Dataset</h2>
+            <p>
+                This page presents the full dataset used in the project. The tables below show how each selected
+                Type 2 diabetes medication is listed across TrumpRx, GoodRx, SingleCare, and Cost Plus Drugs.
+            </p>
+            <p>
+                Each table includes whether the drug is listed, the listed price, price type, dosage, quantity,
+                transparency score, and a direct link to the platform page when available.
+            </p>
+        </section>
+
+        <!-- Dataset by Drug -->
+        <section>
+            <h2>Dataset by Drug</h2>
+            <p>
+                The dataset is organized by drug to make it easier to compare how each platform presents the same medication.
+            </p>
+            <!--I used AI to help me generate this table because it was the easiest way to ensure the table had all of the information in an organized format rather than trying to write iterative code to try and create the table. The data will not be updated over time, so not relying on the csv file to create the table won't create inefficiencies later.-->
+
+            <!-- OZEMPIC -->
+            <div class="drug-section">
+                <h3>Ozempic</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Site</th><th>Listed</th><th>Price</th><th>Type</th><th>Dosage</th><th>Quantity</th><th>Transparency</th><th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>TrumpRx</td><td>Yes</td><td>$199</td><td>Starting</td><td>0.25/0.5mg</td><td>1 pen</td><td>5</td><td><a href="https://trumprx.gov/p/ozempic" target="_blank">View</a></td></tr>
+                            <tr><td>GoodRx</td><td>Yes</td><td>$199</td><td>Coupon</td><td>0.25/0.5mg</td><td>1 pen</td><td>5</td><td><a href="https://www.goodrx.com/ozempic" target="_blank">View</a></td></tr>
+                            <tr><td>SingleCare</td><td>Yes</td><td>$856.97</td><td>Starting</td><td>0.25mg/0.5mg</td><td>1 pen</td><td>6</td><td><a href="https://www.singlecare.com/prescription/ozempic" target="_blank">View</a></td></tr>
+                            <tr><td>Cost Plus Drugs</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RYBELSUS -->
+            <div class="drug-section">
+                <h3>Rybelsus</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <tbody>
+                            <tr><th>Site</th><th>Listed</th><th>Price</th><th>Type</th><th>Dosage</th><th>Quantity</th><th>Transparency</th><th>Link</th></tr>
+                            <tr><td>TrumpRx</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                            <tr><td>GoodRx</td><td>Yes</td><td>$967.77</td><td>Starting</td><td>3mg</td><td>30 tablets</td><td>6</td><td><a href="https://www.goodrx.com/rybelsus" target="_blank">View</a></td></tr>
+                            <tr><td>SingleCare</td><td>Yes</td><td>$903.43</td><td>Starting</td><td>3mg</td><td>30 tablets</td><td>6</td><td><a href="https://www.singlecare.com/prescription/rybelsus" target="_blank">View</a></td></tr>
+                            <tr><td>Cost Plus Drugs</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- JARDIANCE -->
+            <div class="drug-section">
+                <h3>Jardiance</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <tbody>
+                            <tr><th>Site</th><th>Listed</th><th>Price</th><th>Type</th><th>Dosage</th><th>Quantity</th><th>Transparency</th><th>Link</th></tr>
+                            <tr><td>TrumpRx</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                            <tr><td>GoodRx</td><td>Yes</td><td>$354.89</td><td>Starting</td><td>10mg</td><td>30 tablets</td><td>6</td><td><a href="https://www.goodrx.com/jardiance" target="_blank">View</a></td></tr>
+                            <tr><td>SingleCare</td><td>Yes</td><td>$210.12</td><td>Starting</td><td>10mg</td><td>30 tablets</td><td>6</td><td><a href="https://www.singlecare.com/prescription/jardiance" target="_blank">View</a></td></tr>
+                            <tr><td>Cost Plus Drugs</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FARXIGA -->
+            <div class="drug-section">
+                <h3>Farxiga</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <tbody>
+                            <tr><th>Site</th><th>Listed</th><th>Price</th><th>Type</th><th>Dosage</th><th>Quantity</th><th>Transparency</th><th>Link</th></tr>
+                            <tr><td>TrumpRx</td><td>Yes</td><td>$35</td><td>Starting</td><td>5mg</td><td>30 tablets</td><td>4</td><td><a href="https://trumprx.gov/p/farxiga" target="_blank">View</a></td></tr>
+                            <tr><td>GoodRx</td><td>Yes</td><td>$288</td><td>Coupon</td><td>5mg</td><td>30 tablets</td><td>7</td><td><a href="https://www.goodrx.com/farxiga" target="_blank">View</a></td></tr>
+                            <tr><td>SingleCare</td><td>Yes</td><td>$371.50</td><td>Starting</td><td>5mg</td><td>30 tablets</td><td>6</td><td><a href="https://www.singlecare.com/prescription/farxiga" target="_blank">View</a></td></tr>
+                            <tr><td>Cost Plus Drugs</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SYNJARDY -->
+            <div class="drug-section">
+                <h3>Synjardy</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <tbody>
+                            <tr><th>Site</th><th>Listed</th><th>Price</th><th>Type</th><th>Dosage</th><th>Quantity</th><th>Transparency</th><th>Link</th></tr>
+                            <tr><td>TrumpRx</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                            <tr><td>GoodRx</td><td>Yes</td><td>$355.40</td><td>Starting</td><td>5mg/500mg</td><td>60 tablets</td><td>6</td><td><a href="https://www.goodrx.com/synjardy" target="_blank">View</a></td></tr>
+                            <tr><td>SingleCare</td><td>Yes</td><td>$243.66</td><td>Starting</td><td>5mg/500mg</td><td>60 tablets</td><td>6</td><td><a href="https://www.singlecare.com/prescription/synjardy" target="_blank">View</a></td></tr>
+                            <tr><td>Cost Plus Drugs</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- XIGDUO XR -->
+            <div class="drug-section">
+                <h3>Xigduo XR</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <tbody>
+                            <tr><th>Site</th><th>Listed</th><th>Price</th><th>Type</th><th>Dosage</th><th>Quantity</th><th>Transparency</th><th>Link</th></tr>
+                            <tr><td>TrumpRx</td><td>Yes</td><td>$45</td><td>Starting</td><td>2.5mg/1000mg</td><td>30 tablets</td><td>4</td><td><a href="https://trumprx.gov/p/xigduo" target="_blank">View</a></td></tr>
+                            <tr><td>GoodRx</td><td>Yes</td><td>$294.79</td><td>Starting</td><td>2.5mg/1000mg</td><td>30 tablets</td><td>7</td><td><a href="https://www.goodrx.com/xigduo-xr" target="_blank">View</a></td></tr>
+                            <tr><td>SingleCare</td><td>Yes</td><td>$183.85</td><td>Starting</td><td>2.5mg/1000mg</td><td>30 tablets</td><td>6</td><td><a href="https://www.singlecare.com/prescription/xigduo-xr" target="_blank">View</a></td></tr>
+                            <tr><td>Cost Plus Drugs</td><td>No</td><td>Not available</td><td>-</td><td>-</td><td>-</td><td>0</td><td>Not available</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><a href="https://github.com/mads7984/DCDA40833-final-project">View Repository on GitHub</a></p>
+        <p>&copy; 2026 Madeline Gordy | DCDA Capstone Final Project | TCU</p>
+    </footer>
+
+    <script src="../js/navigation.js"></script>
+
+</body>
+</html>

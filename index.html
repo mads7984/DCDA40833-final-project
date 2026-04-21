@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comparison of prescription drug prices, availability, and transparency across multiple platforms">
+    <meta name="author" content="Madeline Gordy">
+    <title>Madeline Gordy | Drug Price Comparison Project</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation: Links to all pages in the project -->
+    <!-- I kept the navigation structure similar to my portfolio because it is clean, familiar, and easy to use -->
+    <nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/overview.html">Data Overview</a></li>
+            <li><a href="pages/availability.html">Drug Availability</a></li>
+            <li><a href="pages/pricing.html">Drug Pricing</a></li>
+            <li><a href="pages/cheapest.html">Cheapest Site by Drug</a></li>
+            <li><a href="pages/transparency.html">Site Transparency</a></li>
+            <li><a href="pages/comparison.html">Drug Comparison</a></li>
+
+            <!-- Dark Mode Toggle -->
+            <!-- I reused the same toggle structure from my portfolio so the website stays visually consistent -->
+            <li class="theme-toggle-wrapper">
+                <label class="theme-toggle" for="theme-switch" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="theme-switch" />
+                    <span class="slider">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header: Project title and summary -->
+    <!-- I wanted the header to clearly explain the focus of the project right away -->
+    <header>
+        <h1>Prescription Drug Price Comparison</h1>
+        <p>Comparing TrumpRx, GoodRx, SingleCare, and Cost Plus Drugs for Type 2 Diabetes Medications</p>
+    </header>
+
+    <main>
+
+        <!-- Welcome Section -->
+        <!-- I kept this section similar to the welcome section in my portfolio because it introduces the site in a simple and direct way -->
+        <section id="welcome" class="hero-card">
+            <h2>Welcome</h2>
+            <p>
+                Welcome to my final project website. This site presents a comparison of prescription drug prices,
+                drug availability, and pricing transparency across TrumpRx, GoodRx, SingleCare, and Cost Plus Drugs.
+            </p>
+            <p>
+                The purpose of this website is to present the findings in a user friendly and organized format.
+                Each page focuses on a different part of the analysis so the data is easier to interpret and compare.
+            </p>
+        </section>
+
+        <!-- Project Overview Section -->
+        <!-- I wanted this section to explain the purpose of the project before users start exploring the pages -->
+        <section id="project-overview">
+            <h2>Project Overview</h2>
+            <p>
+                Prescription drug prices can be difficult to compare because websites present price information in different ways.
+                Some platforms emphasize coupon prices, some display starting prices, and some provide clearer information than others
+                about restrictions, dosage, quantity, and eligibility.
+            </p>
+            <p>
+                To make these differences easier to understand, this project focuses on a selected group of Type 2 diabetes medications
+                and compares how each platform communicates pricing and access information.
+            </p>
+            <p>
+                In addition to price, I also evaluated transparency by looking at whether the site clearly displayed dosage, quantity,
+                price type, restrictions, pharmacy variation, and ease of access.
+            </p>
+        </section>
+
+        <!-- Explore the Project Section -->
+        <!-- I kept the card layout from my portfolio because it worked well visually and makes each section feel organized -->
+        <section id="explore">
+            <h2>Explore the Project</h2>
+            <p>
+                Each page below focuses on one part of the analysis.
+            </p>
+
+            <div class="portfolio-grid">
+
+                <a href="pages/overview.html" class="portfolio-card">
+                    <h3>Overview</h3>
+                    <span class="lab-tag">Dataset</span>
+                    <p>
+                        View the full dataset used in the project, including listed prices, transparency indicators, and notes.
+                    </p>
+                </a>
+
+                <a href="pages/availability.html" class="portfolio-card">
+                    <h3>Availability</h3>
+                    <span class="lab-tag">Analysis</span>
+                    <p>
+                        Compare how many of the selected drugs were listed on each platform.
+                    </p>
+                </a>
+
+                <a href="pages/pricing.html" class="portfolio-card">
+                    <h3>Pricing</h3>
+                    <span class="lab-tag">Analysis</span>
+                    <p>
+                        Review average and median listed prices across platforms.
+                    </p>
+                </a>
+
+                <a href="pages/cheapest.html" class="portfolio-card">
+                    <h3>Cheapest Site</h3>
+                    <span class="lab-tag">Comparison</span>
+                    <p>
+                        Identify which platform offered the lowest listed price for each selected drug.
+                    </p>
+                </a>
+
+                <a href="pages/transparency.html" class="portfolio-card">
+                    <h3>Transparency</h3>
+                    <span class="lab-tag">Analysis</span>
+                    <p>
+                        Compare how clearly each platform communicates important pricing information.
+                    </p>
+                </a>
+
+                <a href="pages/comparison.html" class="portfolio-card">
+                    <h3>Drug Comparison</h3>
+                    <span class="lab-tag">Visualization</span>
+                    <p>
+                        Compare the listed price of each drug across platforms to see where differences are most noticeable.
+                    </p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- About the Data Section -->
+        <!-- I wanted this section to explain what is included in the dataset in a straightforward way -->
+        <section id="about-data">
+            <h2>About the Data</h2>
+            <p>
+                This dataset includes selected Type 2 diabetes medications across four platforms.
+                Each row records whether the drug was listed, the listed price, dosage, quantity,
+                the number of clicks needed to reach the price, and a transparency score.
+            </p>
+            <p>
+                The transparency score is based on whether the site clearly displayed price, dosage,
+                quantity, price type, pharmacy variation, restrictions, and ease of access.
+            </p>
+        </section>
+
+        <!-- Why This Matters Section -->
+        <!-- I wanted to connect the project back to the real world and explain why affordability and transparency both matter -->
+        <section id="why-it-matters">
+            <h2>Why This Matters</h2>
+            <p>
+                Many patients rely on discount platforms to find affordable medications, but price alone does not tell the full story.
+                If pricing information is difficult to access or unclear, patients may still struggle to make informed decisions.
+            </p>
+            <p>
+                This project aims to make both affordability and transparency easier to compare so users can better evaluate these platforms.
+            </p>
+        </section>
+
+        <!-- Reflection Section -->
+        <!-- I kept a reflection section because it fits the style of my portfolio and shows what I learned through the project -->
+        <section id="reflection">
+            <h2>Project Reflection</h2>
+            
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><a href="https://github.com/mads7984/DCDA40833-final-project">View Repository on GitHub</a></p>
+        <p>&copy; 2026 Madeline Gordy | DCDA Capstone Final Project | TCU</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/navigation.js"></script>
+    <script src="js/homepage.js"></script>
+
+</body>
+</html>
