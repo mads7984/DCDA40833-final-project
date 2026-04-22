@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Methodology for prescription drug price comparison project">
+    <meta name="author" content="Madeline Gordy">
+    <title>Madeline Gordy | Methodology</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="overview.html">Dataset Overview</a></li>
+            <li><a href="literature.html">Literature Review</a></li>
+            <li><a href="method.html" class="active">Methodology</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+
+            <li class="theme-toggle-wrapper">
+                <label class="theme-toggle" for="theme-switch" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="theme-switch" />
+                    <span class="slider">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Research Methodology</h1>
+        <p>How I collected, organized, analyzed, and presented the data for this project</p>
+    </header>
+
+    <main>
+
+        <!-- Introduction -->
+        <section class="hero-card">
+            <h2>Introduction</h2>
+            <p>
+                My methodology changed as the project developed. In the original proposal, I planned to rely much more heavily on large-scale web scraping across several coupon platforms. Once I started working with the actual sites, it became clear that this approach was too broad and too dependent on inconsistent page structures.
+            </p>
+            <p>
+                Because of that, I narrowed the scope to selected Type 2 diabetes medications and shifted to a more controlled comparison. This allowed me to build a cleaner dataset and focus on the variables most relevant to the final research question: listed price, availability, and transparency.
+            </p>
+        </section>
+
+        <!-- Final Question -->
+        <section>
+            <h2>Final Research Question</h2>
+            <p>
+                The final version of the project asks how TrumpRx compares to GoodRx, SingleCare, and Cost Plus Drugs for selected Type 2 diabetes medications in terms of listed price, drug availability, and pricing transparency.
+            </p>
+            <p>
+                Narrowing the project in this way was necessary because it shifted the focus from trying to compare entire platforms at a very large scale to building a clearer and more usable comparison of a smaller set of drugs.
+            </p>
+        </section>
+
+        <!-- Data Collection -->
+        <section>
+            <h2>Data Collection</h2>
+            <p>
+                I began with TrumpRx and used it as the starting point for the project. From there, I selected a smaller group of Type 2 diabetes medications that could be compared more consistently across platforms. The final set included Ozempic, Rybelsus, Jardiance, Farxiga, Synjardy, and Xigduo XR.
+            </p>
+            <p>
+                For each drug, I collected data from TrumpRx, GoodRx, SingleCare, and Cost Plus Drugs. The variables I recorded included whether the drug was listed, the listed price, the price type, dosage, quantity, number of clicks required to access the price, a transparency score, and a direct link to the platform page when available.
+            </p>
+        </section>
+
+        <!-- Data Management -->
+        <section>
+            <h2>Data Management</h2>
+            <p>
+                I organized the information into a structured CSV file with one row for each drug-platform combination. This made it easier to keep the dataset consistent and to use the same data across Python, Tableau, and the website.
+            </p>
+            <p>
+                When a drug was not listed on a platform, I still kept that row in the dataset and marked it as not available. That choice was important because non-availability is part of the comparison. Removing those rows would have hidden one of the key differences between the platforms.
+            </p>
+        </section>
+
+        <!-- Transparency -->
+        <section>
+            <h2>Transparency Framework</h2>
+            <p>
+                One of the most important methodological decisions I made was to include a transparency score. I did this because I realized that affordability alone was not enough to evaluate the platforms. Some websites made prices easy to find and understand, while others required more steps or left important details unclear.
+            </p>
+            <p>
+                The transparency score was based on whether the site clearly displayed price, dosage, quantity, price type, restrictions, pharmacy variation, and ease of access. Each category was scored as either present or not present, and the total became the transparency score for that row.
+            </p>
+        </section>
+
+        <!-- Analysis -->
+        <section>
+            <h2>Data Analysis</h2>
+            <p>
+                I used Python to clean the dataset, recalculate transparency scores, and generate the outputs used in the project. The analysis included availability by site, average price by site, median price by site, the cheapest site per drug, and price differences from TrumpRx where direct comparisons were possible.
+            </p>
+            <p>
+                I also used Python to generate chart images and output files that could be used in Tableau and on the website. This made the project easier to manage because once the dataset was structured correctly, I could create multiple outputs from the same source file.
+            </p>
+        </section>
+
+        <!-- AI -->
+        <section>
+            <h2>AI Tool Usage</h2>
+            <p>
+                I used AI tools throughout the project, especially when troubleshooting scraping attempts, revising Python code, organizing HTML pages, and refining the structure of the website. AI was most useful when I needed help debugging, clarifying code logic, and narrowing the project to a more realistic scope.
+            </p>
+            <p>
+                At the same time, one of the biggest lessons from this project was that AI-generated code still has to be reviewed line by line. Some solutions looked correct at first but did not actually work with my file structure or dataset. Using AI made some parts of the process faster, but it did not replace careful revision or critical thinking.
+            </p>
+        </section>
+
+        <!-- Reflection -->
+        <section>
+            <h2>Methodological Reflection</h2>
+            <p>
+                Overall, my methods were primarily quantitative because the project depends on price comparisons, availability counts, and transparency scoring. At the same time, the project also includes a qualitative element because I had to interpret how sites communicated information and how user-friendly those experiences were.
+            </p>
+            <p>
+                Narrowing the scope ended up making the project stronger. Rather than trying to force a broader and less stable method, I was able to build a more focused comparison that is easier to defend and more useful to the reader.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><a href="https://github.com/mads7984/DCDA40833-final-project">View Repository on GitHub</a></p>
+        <p>&copy; 2026 Madeline Gordy | Final Project | TCU</p>
+    </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
