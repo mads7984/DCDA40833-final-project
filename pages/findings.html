@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Findings page for prescription drug price comparison project">
+    <meta name="author" content="Madeline Gordy">
+    <title>Madeline Gordy | Findings</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <ul id="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="overview.html">Dataset Overview</a></li>
+            <li><a href="literature.html">Literature Review</a></li>
+            <li><a href="method.html">Methodology</a></li>
+            <li><a href="findings.html" class="active">Findings</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+
+            <li class="theme-toggle-wrapper">
+                <label class="theme-toggle" for="theme-switch" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="theme-switch" />
+                    <span class="slider">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </span>
+                </label>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Analysis & Findings</h1>
+        <p>Main results from the comparison of price, availability, and transparency across platforms</p>
+    </header>
+
+    <main>
+
+        <!-- Introduction -->
+        <section class="hero-card">
+            <h2>Introduction to the Findings</h2>
+            <p>
+                This page brings together the main analytical results from the project. Rather than separating the results across
+                multiple pages, I combined them here so the comparison is easier to follow as one connected argument.
+            </p>
+            <p>
+                The findings are organized into five main areas: availability, pricing, cheapest site comparisons, transparency, and drug-by-drug comparison. Together, these sections show that platform usefulness is shaped by more than just the lowest posted price.
+            </p>
+        </section>
+
+        <!-- Availability -->
+        <section>
+            <h2>Availability</h2>
+            <p>
+                One of the clearest findings is that the platforms differ substantially in availability. GoodRx and SingleCare listed all of the selected drugs in the dataset, while TrumpRx listed only a subset and Cost Plus Drugs did not list any of the selected drugs. This matters because a platform cannot be useful for a drug if the drug is not listed at all.
+            </p>
+            <div class="viz-container">
+                <img src="../charts/availability_by_site.png" alt="Availability by site chart">
+                <figcaption>Figure 1. Number of selected drugs listed by platform.</figcaption>
+            </div>
+            <p>
+                This result suggests that broader coverage is one of the biggest advantages of GoodRx and SingleCare in this dataset. TrumpRx may offer strong prices for certain medications, but its limited coverage reduces its usefulness as a universal comparison tool.
+            </p>
+        </section>
+
+        <!-- Pricing -->
+        <section>
+            <h2>Pricing</h2>
+            <p>
+                The pricing results show that no platform was uniformly cheapest across every drug. TrumpRx offered very low listed prices for some drugs, especially Farxiga and Xigduo XR, but it also had a more limited set of listings overall. GoodRx and SingleCare often had broader coverage, but their listed prices varied much more by drug.
+            </p>
+            <div class="viz-grid">
+                <figure class="viz-container">
+                    <img src="../charts/average_price_by_site.png" alt="Average price by site chart">
+                    <figcaption>Figure 2. Average listed price by platform.</figcaption>
+                </figure>
+
+                <figure class="viz-container">
+                    <img src="../charts/price_by_drug_and_site.png" alt="Price by drug and site chart">
+                    <figcaption>Figure 3. Listed price comparison for each selected drug.</figcaption>
+                </figure>
+            </div>
+            <p>
+                Looking at the prices at both the site level and the drug level shows why a single average cannot tell the full story. The grouped comparison makes it much clearer that some medications are dramatically cheaper on one platform while other medications are either missing or priced very differently elsewhere.
+            </p>
+        </section>
+
+        <!-- Cheapest -->
+        <section>
+            <h2>Cheapest Site Comparisons</h2>
+            <p>
+                Looking at the cheapest site for each drug helps make the comparison more concrete. Some drugs were substantially cheaper on TrumpRx, while others were only listed on GoodRx or SingleCare. This means that there is not one platform that works best in every case.
+            </p>
+            <p>
+                This part of the analysis also shows why broad claims about one platform being universally better can be misleading. A platform may be cheapest for one drug and absent for another, which means that users would still need to compare across sites to know where their particular medication stands.
+            </p>
+        </section>
+
+        <!-- Transparency -->
+        <section>
+            <h2>Transparency</h2>
+            <p>
+                One of the strongest findings from the project is that transparency and affordability do not always move together. Some platforms displayed low prices but were not as clear about restrictions or eligibility. Others provided clearer information but did not always have the lowest listed price.
+            </p>
+            <p>
+                Including transparency in the project made it possible to compare how understandable each platform was from a user perspective. This ended up being one of the most useful parts of the analysis because it reflects what patients would actually need to know when trying to use a listed discount.
+            </p>
+            <div class="viz-container">
+                <img src="../charts/transparency_scores_by_site.png" alt="Transparency scores by site chart">
+                <figcaption>Figure 4. Average transparency score by platform.</figcaption>
+            </div>
+        </section>
+
+        <!-- Overall -->
+        <section>
+            <h2>Overall Interpretation</h2>
+            <p>
+                Taken together, the findings suggest that these platforms should not be evaluated by price alone. TrumpRx may provide meaningful savings for some medications, but its listings are limited. GoodRx and SingleCare provide broader coverage, but their prices and eligibility conditions vary more. Cost Plus Drugs, at least within this selected sample, did not function as a useful comparison site for the medications included in the dataset.
+            </p>
+            <p>
+                The broader conclusion from the findings is that access depends on three things working together: a drug has to be listed, the price has to be competitive, and the platform has to communicate clearly enough for the user to understand what is actually being offered. That is the main pattern that emerged from the project.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><a href="https://github.com/mads7984/DCDA40833-final-project">View Repository on GitHub</a></p>
+        <p>&copy; 2026 Madeline Gordy | Final Project | TCU</p>
+    </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
