@@ -65,9 +65,8 @@
             <p>
                 One of the clearest findings is that the platforms differ substantially in availability. GoodRx and SingleCare listed all of the selected drugs in the dataset, while TrumpRx listed only a subset and Cost Plus Drugs did not list any of the selected drugs. This matters because a platform cannot be useful for a drug if the drug is not listed at all.
             </p>
-            <div class="viz-container">
-                <img src="../charts/availability_by_site.png" alt="Availability by site chart">
-                <figcaption>Figure 1. Number of selected drugs listed by platform.</figcaption>
+            <div class="embed-container">
+                <div class='tableauPlaceholder' id='viz1777157208219' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;AvailabilitybySite&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DrugCouponSiteComparison&#47;AvailabilitybySite' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;AvailabilitybySite&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1777157208219');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
             </div>
             <p>
                 This result suggests that broader coverage is one of the biggest advantages of GoodRx and SingleCare in this dataset. TrumpRx may offer strong prices for certain medications, but its limited coverage reduces its usefulness as a universal comparison tool.
@@ -80,17 +79,59 @@
             <p>
                 The pricing results show that no platform was uniformly cheapest across every drug. TrumpRx offered very low listed prices for some drugs, especially Farxiga and Xigduo XR, but it also had a more limited set of listings overall. GoodRx and SingleCare often had broader coverage, but their listed prices varied much more by drug.
             </p>
-            <div class="viz-grid">
-                <figure class="viz-container">
-                    <img src="../charts/average_price_by_site.png" alt="Average price by site chart">
-                    <figcaption>Figure 2. Average listed price by platform.</figcaption>
-                </figure>
+            <div class="tableau-section">
+                <h3>Average Drug Price by Site</h3>
 
-                <figure class="viz-container">
-                    <img src="../charts/price_by_drug_and_site.png" alt="Price by drug and site chart">
-                    <figcaption>Figure 3. Listed price comparison for each selected drug.</figcaption>
-                </figure>
+                <p>
+                    This visualization compares the average listed price across each platform. 
+                    It provides a general overview of pricing differences, but it does not capture variation at the individual drug level.
+                </p>
+
+                <div class="embed-container">
+                    <div class='tableauPlaceholder' id='viz1777157301880' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;AverageDrugPricebySite&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DrugCouponSiteComparison&#47;AverageDrugPricebySite' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;AverageDrugPricebySite&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1777157301880');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+
+                <p>
+                    While averages are useful for identifying overall trends, they can hide significant variation between medications. 
+                    A platform with a lower average price may still be more expensive for specific drugs.
+                </p>
             </div>
+
+            <div class="tableau-section">
+                <h3>Median Price by Site</h3>
+
+                <p>
+                    This visualization compares median prices across platforms. 
+                    The median helps reduce the influence of extremely high or low prices and provides a more balanced view of typical pricing.
+                </p>
+
+                <div class="embed-container">
+                    <div class='tableauPlaceholder' id='viz1777157331820' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;MedianPricebySite&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DrugCouponSiteComparison&#47;MedianPricebySite' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;MedianPricebySite&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1777157331820');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+
+                <p>
+                    Comparing median values alongside averages helps clarify whether pricing differences are consistent or driven by a small number of outliers.
+                </p>
+            </div>
+
+            <div class="tableau-section">
+                <h3>Price Difference from TrumpRx</h3>
+
+                <p>
+                    This visualization compares listed prices on other platforms against TrumpRx for each drug where a direct comparison is possible.
+                    It highlights where TrumpRx offers lower prices and where other platforms may be more competitive.
+                </p>
+
+                <div class="embed-container">
+                    <div class='tableauPlaceholder' id='viz1777157505366' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;PriceDifferencefromTrumpRxbyDrugandSite&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DrugCouponSiteComparison&#47;PriceDifferencefromTrumpRxbyDrugandSite' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;PriceDifferencefromTrumpRxbyDrugandSite&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1777157505366');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+
+                <p>
+                    This comparison shows that TrumpRx is not consistently the lowest-cost option across all medications. 
+                    Price differences vary by drug, reinforcing the need to compare platforms rather than rely on a single source.
+                </p>
+            </div>
+
             <p>
                 Looking at the prices at both the site level and the drug level shows why a single average cannot tell the full story. The grouped comparison makes it much clearer that some medications are dramatically cheaper on one platform while other medications are either missing or priced very differently elsewhere.
             </p>
@@ -102,6 +143,9 @@
             <p>
                 Looking at the cheapest site for each drug helps make the comparison more concrete. Some drugs were substantially cheaper on TrumpRx, while others were only listed on GoodRx or SingleCare. This means that there is not one platform that works best in every case.
             </p>
+            <div class="embed-container">
+                <div class='tableauPlaceholder' id='viz1777157408817' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;CheapestSitebyDrug&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DrugCouponSiteComparison&#47;CheapestSitebyDrug' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;CheapestSitebyDrug&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1777157408817');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
             <p>
                 This part of the analysis also shows why broad claims about one platform being universally better can be misleading. A platform may be cheapest for one drug and absent for another, which means that users would still need to compare across sites to know where their particular medication stands.
             </p>
@@ -113,13 +157,12 @@
             <p>
                 One of the strongest findings from the project is that transparency and affordability do not always move together. Some platforms displayed low prices but were not as clear about restrictions or eligibility. Others provided clearer information but did not always have the lowest listed price.
             </p>
+            <div class="embed-container">
+                <div class='tableauPlaceholder' id='viz1777157465074' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;AverageTransparencyScorebySite&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DrugCouponSiteComparison&#47;AverageTransparencyScorebySite' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;DrugCouponSiteComparison&#47;AverageTransparencyScorebySite&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1777157465074');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
             <p>
                 Including transparency in the project made it possible to compare how understandable each platform was from a user perspective. This ended up being one of the most useful parts of the analysis because it reflects what patients would actually need to know when trying to use a listed discount.
             </p>
-            <div class="viz-container">
-                <img src="../charts/transparency_scores_by_site.png" alt="Transparency scores by site chart">
-                <figcaption>Figure 4. Average transparency score by platform.</figcaption>
-            </div>
         </section>
 
         <!-- Overall -->

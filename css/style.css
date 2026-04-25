@@ -841,3 +841,22 @@ body.dark-mode .map-container {
         page-break-inside: avoid;
     }
 }
+
+.tableau-section {
+    margin: 2.5rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.tableau-section:first-of-type {
+    border-top: none;
+}
+
+.tableau-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.embed-container {
+    margin: 1.5rem 0 2rem 0;
+}
