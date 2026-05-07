@@ -25,6 +25,42 @@
     --border-color: #d8eaea;       /* Soft border */
 }
 
+/* =========================
+   Page Background
+   ========================= */
+
+body {
+    background-image:
+        linear-gradient(
+            rgba(248, 250, 252, 0.90),
+            rgba(248, 250, 252, 0.90)
+        ),
+        url("../images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+/* =========================
+   Dark Mode Background
+   ========================= */
+
+body.dark-mode {
+    background-image:
+            linear-gradient(
+                rgba(17, 24, 39, 0.78),
+                rgba(17, 24, 39, 0.78)
+            ),
+            url("../images/background.jpg") !important;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
 /* Dark Mode */
 body.dark-mode {
     --primary-color: #7ad5db;      /* Lighter aqua for dark mode */
