@@ -40,30 +40,110 @@ body.dark-mode {
     --border-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Dark mode specific adjustments for images and links */
-body.dark-mode img {
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
+/* =========================
+   Improved Dark Mode Contrast
+   ========================= */
+
+body.dark-mode .portfolio-card,
+body.dark-mode .summary-card,
+body.dark-mode .logo-card,
+body.dark-mode .table-wrapper,
+body.dark-mode table {
+    background-color: #1f2937;
 }
 
-body.dark-mode img:hover {
-    opacity: 1;
+/* Labels / Tags */
+
+body.dark-mode .lab-tag {
+    background-color: #35523b;
+    color: #ffffff;
 }
 
-body.dark-mode .viz-container img {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* Section Headings */
+
+body.dark-mode main section h2 {
+    border-bottom-color: #6fa878;
 }
+
+/* Links */
 
 body.dark-mode a {
-    color: var(--accent-color);
+    color: #9dd6de;
 }
 
-body.dark-mode main section a {
-    color: var(--accent-color);
+body.dark-mode a:hover {
+    color: #c7eef2;
 }
 
-body.dark-mode main section a:hover {
-    color: var(--primary-color);
+/* Logo Cards */
+
+body.dark-mode .logo-card {
+    border-color: #374151;
+}
+
+body.dark-mode .logo-card p {
+    color: #ffffff;
+}
+
+/* Hover Effects */
+
+body.dark-mode .portfolio-card:hover,
+body.dark-mode .summary-card:hover,
+body.dark-mode .logo-card:hover {
+    border-color: #6fa878;
+    box-shadow: 0 8px 18px rgba(111, 168, 120, 0.35);
+}
+
+/* Hovered Text */
+
+body.dark-mode .portfolio-card:hover h3,
+body.dark-mode .summary-card:hover h3,
+body.dark-mode .logo-card:hover p {
+    color: #ffffff;
+}
+
+/* Highlight Rows */
+
+body.dark-mode .results-table tr.highlight,
+body.dark-mode .highlight,
+body.dark-mode .active-highlight {
+    background-color: #35523b;
+    color: #ffffff;
+}
+
+/* Tables */
+
+body.dark-mode table th {
+    background-color: #35523b;
+    color: #ffffff;
+}
+
+body.dark-mode table td {
+    border-color: #374151;
+}
+
+/* Optional Stronger Contrast for Table Rows */
+
+body.dark-mode tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Images */
+
+body.dark-mode img {
+    opacity: 0.97;
+}
+
+/* Navigation Hover */
+
+body.dark-mode nav a:hover {
+    color: #ffffff;
+}
+
+/* Footer */
+
+body.dark-mode footer {
+    border-top-color: #374151;
 }
 
 /* =========================
@@ -859,4 +939,81 @@ body.dark-mode .map-container {
 
 .embed-container {
     margin: 1.5rem 0 2rem 0;
+}
+
+/* =========================
+   Website Logo Section
+   ========================= */
+
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.logo-card {
+    background: var(--card-bg);
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease;
+}
+
+.logo-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 16px rgba(24, 121, 128, 0.15);
+    transform: translateY(-3px);
+}
+
+.site-logo {
+    display: block;
+    margin: 0 auto 0.75rem auto;
+
+    max-width: 130px;
+    max-height: 70px;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.logo-card p {
+    margin: 0;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+/* =========================
+   Dark Mode Logo Styling
+   ========================= */
+
+body.dark-mode .logo-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .logo-card:hover {
+    border-color: #a8d7a2;
+    box-shadow: 0 8px 16px rgba(168, 215, 162, 0.25);
+}
+
+body.dark-mode .logo-card p {
+    color: #a8d7a2;
 }

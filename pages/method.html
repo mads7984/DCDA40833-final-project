@@ -49,9 +49,9 @@
 
         <!-- Introduction -->
         <section class="hero-card">
-            <h2>Introduction</h2>
+            <h2>How the Project Was Built</h2>
             <p>
-                My methodology changed as the project developed. In the original proposal, I planned to rely much more heavily on large-scale web scraping across several coupon platforms. Once I started working with the actual sites, it became clear that this approach was too broad and too dependent on inconsistent page structures.
+                My methodology changed as the project developed. In the original proposal, I planned to rely much more heavily on large-scale web scraping across several coupon websites. Once I started working with the actual sites, it became clear that this approach was too broad and too dependent on inconsistent page structures.
             </p>
             <p>
                 Because of that, I narrowed the scope to selected Type 2 diabetes medications and shifted to a more controlled comparison. This allowed me to build a cleaner dataset and focus on the variables most relevant to the final research question: listed price, availability, and transparency.
@@ -65,7 +65,7 @@
                 The final version of the project asks how TrumpRx compares to GoodRx, SingleCare, and Cost Plus Drugs for selected Type 2 diabetes medications in terms of listed price, drug availability, and pricing transparency.
             </p>
             <p>
-                Narrowing the project in this way was necessary because it shifted the focus from trying to compare entire platforms at a very large scale to building a clearer and more usable comparison of a smaller set of drugs.
+                Narrowing the project in this way was necessary because it shifted the focus from trying to compare entire websites at a very large scale to building a clearer and more usable comparison of a smaller set of drugs.
             </p>
         </section>
 
@@ -73,7 +73,7 @@
         <section>
             <h2>Data Collection</h2>
             <p>
-                I began with TrumpRx and used it as the starting point for the project. From there, I selected a smaller group of Type 2 diabetes medications that could be compared more consistently across platforms. The final set included Ozempic, Rybelsus, Jardiance, Farxiga, Synjardy, and Xigduo XR.
+                I began with TrumpRx and used it as the starting point for the project. From there, I selected a smaller group of Type 2 diabetes medications that could be compared more consistently across websites. The final set included Ozempic, Rybelsus, Jardiance, Farxiga, Synjardy, and Xigduo XR.
             </p>
             <p>
                 For each drug, I collected data from TrumpRx, GoodRx, SingleCare, and Cost Plus Drugs. The variables I recorded included whether the drug was listed, the listed price, the price type, dosage, quantity, number of clicks required to access the price, a transparency score, and a direct link to the platform page when available.
@@ -84,10 +84,10 @@
         <section>
             <h2>Data Management</h2>
             <p>
-                I organized the information into a structured CSV file with one row for each drug-platform combination. This made it easier to keep the dataset consistent and to use the same data across Python, Tableau, and the website.
+                I organized the information into a spreadsheet-style data file with one row for each drug on each website. This made it easier to keep the dataset consistent and to use the same data across Python, Tableau, and the website.
             </p>
             <p>
-                When a drug was not listed on a platform, I still kept that row in the dataset and marked it as not available. That choice was important because non-availability is part of the comparison. Removing those rows would have hidden one of the key differences between the platforms.
+                When a drug was not listed on a platform, I still kept that row in the dataset and marked it as not available. That choice was important because non-availability is part of the comparison. Removing those rows would have hidden one of the key differences between the websites.
             </p>
         </section>
 
@@ -95,7 +95,7 @@
         <section>
             <h2>Transparency Framework</h2>
             <p>
-                One of the most important methodological decisions I made was to include a transparency score. I did this because I realized that affordability alone was not enough to evaluate the platforms. Some websites made prices easy to find and understand, while others required more steps or left important details unclear.
+                One of the most important methodological decisions I made was to include a transparency score. I did this because I realized that affordability alone was not enough to evaluate the websites. Some websites made prices easy to find and understand, while others required more steps or left important details unclear.
             </p>
             <p>
                 The transparency score was based on whether the site clearly displayed price, dosage, quantity, price type, restrictions, pharmacy variation, and ease of access. Each category was scored as either present or not present, and the total became the transparency score for that row.
@@ -106,10 +106,10 @@
         <section>
             <h2>Data Analysis</h2>
             <p>
-                I used Python to clean the dataset, recalculate transparency scores, and generate the outputs used in the project. The analysis included availability by site, average price by site, median price by site, the cheapest site per drug, and price differences from TrumpRx where direct comparisons were possible.
+                I used Python to clean the dataset, check that the transparency scores were added correctly, and generate the outputs used in the project. The analysis included availability by site, average price by site, median price by site, the cheapest site per drug, and price differences from TrumpRx where direct comparisons were possible.
             </p>
             <p>
-                I also used Python to generate chart images and output files that could be used in Tableau and on the website. This made the project easier to manage because once the dataset was structured correctly, I could create multiple outputs from the same source file.
+                I also used Python to generate chart images and summary tables that could be used in Tableau and on the website. This made the project easier to manage because once the dataset was structured correctly, I could create multiple outputs from the same source file.
             </p>
         </section>
 
